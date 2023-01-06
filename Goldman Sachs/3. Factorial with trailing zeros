@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int trailingZeroes(int n) {
+        return (n/5)+(n/25)+(n/125)+(n/625)+(n/3125);
+    }
+};
+OR
+ {int count=0;
+        if(n>=5 && n<25){
+            count=n/5;
+        }
+        else if(n>=25 && n<125){
+            count=(n/5)+(n/25);
+        }
+        else if(n>=125 && n<625){
+            count=(n/5)+(n/25)+(n/125);
+        }
+        else if(n>=625 && n<3125){
+            count=(n/5)+(n/25)+(n/125)+(n/625);
+        }
+        else if(n>=3125){
+            count=(n/5)+(n/25)+(n/125)+(n/625)+(n/3125);
+        }
+               
+        
+        return count;}
