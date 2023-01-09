@@ -1,0 +1,27 @@
+class Solution {
+public:
+    int getDistance(vector<int>&a, vector<int>&b){
+        int r;
+        r=(b[1]-a[1])*(b[1]-a[1])+(b[0]-a[0])*(b[0]-a[0]);
+        return r;
+    }
+    int numberOfBoomerangs(vector<vector<int>>& points) {
+    int count=0;
+    int n=points.size();
+    for(int i=0;i<n;i++){
+        unordered_map<int,int>m;
+        for(int j=0;j<n;j++){
+            if(i==j)
+                continue;
+            int s=getDistance(points[i],points[j]);
+            
+             m[s]++;
+        }
+        for(auto x:m)
+            if(x.second>=2)
+                count=count+(x.second*(x.second-1));
+    }
+    return count;
+}
+
+};
