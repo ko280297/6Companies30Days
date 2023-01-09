@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int minimumCardPickup(vector<int>& cards) {
+    int n=1000001;
+    int res=INT_MAX;
+    int arr[n];
+    fill_n(arr,n,-1);
+    for(int i=0;i<cards.size();i++){
+        if(arr[cards[i]]!=-1){
+            res=min(i-arr[cards[i]]+1,res);
+        }
+        arr[cards[i]]=i;
+        }
+    if(res==INT_MAX)
+        return -1;
+    else 
+        return res;
+    }
+};
